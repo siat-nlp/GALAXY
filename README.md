@@ -95,7 +95,7 @@ sh scripts/kvret/infer.sh
 # Inference on CamRest
 sh scripts/camrest/infer.sh
 ```
-> **NOTE**: For reproduction, all the best hyper-parameters have already been set in respective scripts and you can fix them to run.
+> **NOTE**: For reproduction, all the best hyper-parameters have already been set in corresponding scripts and you can follow them to run.
 
 ## Citation
 If you use our code or find GALAXY useful in your work, please cite our paper as:
