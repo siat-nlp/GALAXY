@@ -38,7 +38,7 @@ We use the tokenization tool in SpaCy and you can directly install python packag
 - [UnDial](https://drive.google.com/file/d/1t7YaaZ0niVcypFIi-3P8s9zKCh7Zs3aN/view?usp=sharing): a large-scale unlabeled dialog dataset consisting of 35M utterances with careful processing, ranging from online forum chatting logs to customer service conversations.
 
 ### Pre-trained Checkpoint
-- [GALAXY](https://drive.google.com/file/d/16WolpMhg5bRIETuqQpENBBGndCYelaxA/view?usp=sharing), uncased model with DA classification head: 12-layers, 768-hidden, 12-heads, 109M parameters.
+- [GALAXY](https://drive.google.com/file/d/16WolpMhg5bRIETuqQpENBBGndCYelaxA/view?usp=sharing): an uncased model with DA classification head (12-layers, 768-hidden, 12-heads, 109M parameters)
 
 You need to unzip the downloaded model file `model.zip`, then put the unzipped directory `model` to the root directory `GALAXY` of this project for the futhuer fine-tuning.
 
@@ -51,7 +51,12 @@ The downloaded zip file `data.zip` contains four TOD benchmark datasets: MultiWO
 ### Fine-tuned Checkpoints
 Download checkpoints from this [link](https://drive.google.com/file/d/1158aGRryHNX7YdH_HV-YAEEksatoxNUj/view?usp=sharing). 
 
-The downloaded zip file `outputs.zip` contains our best fine-tuned checkpoints on different datasets: **7-th** epoch on MultiWOZ2.0 (60 training epochs in total), **5-th** epoch on MultiWOZ2.1 (60 training epochs in total), **89-th** epoch on In-Car Assistant (100 training epochs in total) and **18-th** epoch on CamRest (60 training epochs in total). 
+The downloaded zip file `outputs.zip` contains our best fine-tuned checkpoints on different datasets: 
+- the **7-th** epoch on MultiWOZ2.0 (**60** training epochs in total)
+- the **5-th** epoch on MultiWOZ2.1 (**60** training epochs in total)
+- the **89-th** epoch on In-Car Assistant (**100** training epochs in total)
+- the **18-th** epoch on CamRest (**60** training epochs in total)
+
 If you want to reproduce our reported results, you should put the unzipped directory `outputs` to the root directory `GALAXY` of this project. 
 Then you can directly run the inference scripts of different datasets for the reproduction, which will be introduced later.
 
