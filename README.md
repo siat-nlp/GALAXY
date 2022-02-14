@@ -40,13 +40,13 @@ We use the tokenization tool in SpaCy and you can directly install python packag
 ### Pre-trained Checkpoint
 - [GALAXY](https://drive.google.com/file/d/16WolpMhg5bRIETuqQpENBBGndCYelaxA/view?usp=sharing): an uncased model with DA classification head (12-layers, 768-hidden, 12-heads, 109M parameters)
 
-You need to unzip the downloaded model file `model.zip`, then put the unzipped directory `model` to the root directory `GALAXY` of this project for the futhuer fine-tuning.
+You need to unzip the downloaded model file `model.zip`, then put the unzipped directory `model` into the root directory `GALAXY` of this project for the futhuer fine-tuning.
 
 ## Fine-tuning
 ### Data Preparation
 Download data from this [link](https://drive.google.com/file/d/1Spb48PwH1vIyRIR1gCkcJ3f-aIsIsuXx/view?usp=sharing). 
 
-The downloaded zip file `data.zip` contains four TOD benchmark datasets: MultiWOZ2.0, MultiWOZ2.1, In-Car Assistant and CamRest, which have already been processed. You need to put the unzipped directory `data` to the root directory `GALAXY` of this project for the subsequent training.
+The downloaded zip file `data.zip` contains four TOD benchmark datasets: MultiWOZ2.0, MultiWOZ2.1, In-Car Assistant and CamRest, which have already been processed. You need to put the unzipped directory `data` into the root directory `GALAXY` of this project for the subsequent training.
 
 ### Fine-tuned Checkpoints
 Download checkpoints from this [link](https://drive.google.com/file/d/1158aGRryHNX7YdH_HV-YAEEksatoxNUj/view?usp=sharing). 
@@ -57,7 +57,7 @@ The downloaded zip file `outputs.zip` contains our best fine-tuned checkpoints o
 - the **89-th** epoch on In-Car Assistant (**100** training epochs in total)
 - the **18-th** epoch on CamRest (**60** training epochs in total)
 
-If you want to reproduce our reported results, you should put the unzipped directory `outputs` to the root directory `GALAXY` of this project. 
+If you want to reproduce our reported results, you should put the unzipped directory `outputs` into the directory `${SAVE_ROOT}` (set in scripts). 
 Then you can directly run the inference scripts of different datasets for the reproduction, which will be introduced later.
 
 ### Training
