@@ -47,8 +47,8 @@ You need to unzip the downloaded model file `model.zip`, then put the unzipped d
 Define your own paths `<YOUR_PROJECT_PATH>` and `<YOUR_SAVE_PATH>` in scripts as follows: 
 ```sh
 PROJECT_NAME="GALAXY"  # project name (fixed)
-PROJECT_ROOT=<YOUR_PROJECT_PATH>/${PROJECT_NAME}  # root directory of this project
-SAVE_ROOT=<YOUR_SAVE_PATH>/${PROJECT_NAME}  # root directory of model's output
+PROJECT_ROOT=<YOUR_PROJECT_PATH>/${PROJECT_NAME}  # root path of this project
+SAVE_ROOT=<YOUR_SAVE_PATH>/${PROJECT_NAME}  # root path of model's output
 ```
 
 ### Data Preparation
