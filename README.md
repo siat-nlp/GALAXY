@@ -97,6 +97,12 @@ sh scripts/camrest/infer.sh
 ```
 > **NOTE**: For reproduction, all the best hyper-parameters have already been set in corresponding scripts and you can follow them to run.
 
+## References
+- For the implementation of UniLM architecture, we refer to the code of [Pytorch-PLATO](https://github.com/HwwAncient/Pytorch-PLATO), 
+  which implements [PLATO](https://github.com/PaddlePaddle/Research/tree/master/NLP/Dialogue-PLATO) model in pytorch version.
+- For the data preparation and evaluation on MultiWOZ2.0/2.1, we refer to the code of [UBAR](https://github.com/TonyNemo/UBAR-MultiWOZ).
+- For the data preparation and evaluation on In-Car Assistant/CamRest, we refer to the code of [LABES](https://github.com/thu-spmi/LABES).
+
 ## Citation
 If you use our code or find GALAXY useful in your work, please cite our paper as:
 
@@ -107,3 +113,6 @@ If you use our code or find GALAXY useful in your work, please cite our paper as
   year={2022}
 }
 ```
+
+## Contact
+For personal communication related to GALAXY, please contact Wanwei He (`ww.he@siat.ac.cn`).
