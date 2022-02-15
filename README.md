@@ -43,6 +43,14 @@ We use the tokenization tool in SpaCy and you can directly install python packag
 You need to unzip the downloaded model file `model.zip`, then put the unzipped directory `model` into the project directory `GALAXY` for the futhuer fine-tuning.
 
 ## Fine-tuning
+### Path Definition
+Define your own paths `<YOUR_PROJECT_PATH>` and `<YOUR_SAVE_PATH>` in scripts as follows: 
+```sh
+PROJECT_NAME="GALAXY"  # project name (fixed)
+PROJECT_ROOT=<YOUR_PROJECT_PATH>/${PROJECT_NAME}  # root directory of this project
+SAVE_ROOT=<YOUR_SAVE_PATH>/${PROJECT_NAME}  # root directory of model's output
+```
+
 ### Data Preparation
 Download data from this [link](https://drive.google.com/file/d/1Spb48PwH1vIyRIR1gCkcJ3f-aIsIsuXx/view?usp=sharing). 
 
