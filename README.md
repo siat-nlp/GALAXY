@@ -117,10 +117,11 @@ If you fine-tune GALAXY from scratch by yourself, the 4-th/60 to 7-th/60 trainin
 If you use our code or find GALAXY useful in your work, please cite our paper as:
 
 ```bib
-@inproceedings{He2022GALAXY,
+@article{he2021galaxy,
   title={GALAXY: A Generative Pre-trained Model for Task-Oriented Dialog with Semi-Supervised Learning and Explicit Policy Injection},
-  author={Wanwei He and Yinpei Dai and Yinhe Zheng and Yuchuan Wu and Zhen Cao and Dermot Liu and Peng Jiang and Min Yang and Feiling Huang and Luo Si and Jian Sun and Yongbin Li},
-  year={2022}
+  author={He, Wanwei and Dai, Yinpei and Zheng, Yinhe and Wu, Yuchuan and Cao, Zheng and Liu, Dermot and Jiang, Peng and Yang, Min and Huang, Fei and Si, Luo and others},
+  journal={arXiv preprint arXiv:2111.14592},
+  year={2021}
 }
 ```
 
