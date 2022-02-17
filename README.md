@@ -73,37 +73,39 @@ We fine-tune the GALAXY on the four TOD datasets and focus on the end-to-end dia
 You can fine-tune GALAXY from scratch by running the following training scripts:
 
 ```sh
-# Training on MultiWOZ2.0
+# Training on MultiWOZ2.0 (8 GPUs)
 sh scripts/multiwoz2.0/train.sh
 
-# Training on MultiWOZ2.1
+# Training on MultiWOZ2.1 (8 GPUs)
 sh scripts/multiwoz2.1/train.sh
 
-# Training on In-Car Assistant
+# Training on In-Car Assistant (1 GPU)
 sh scripts/kvret/train.sh
 
-# Training on CamRest
+# Training on CamRest (1 GPU)
 sh scripts/camrest/train.sh
 ```
 > **NOTE**: For MultiWOZ2.0 and MultiWOZ2.1, we also maintain the DA prediction task to alleviate the model discrepancy between pre-training and fine-tuning. On the other hand, we discard this task on the In-Car Assistant and CamRest due to the lack of useful DAs in these two datasets.
+We support both multi-GPU and single-GPU training, you can tune the hyper-parameter `${BATCH_SIZE}$` and `${GRADIENT_ACCUMULATION_STEPS}$` to maintain originally offered  batch size when single-GPU training.
 
 ### Inference
 After collecting some fine-tuned checkpoints (by directly using ours or fine-tuning GALAXY from scratch by yourself), you can do the inference on the test sets of these datasets by running the following inference scripts:
 
 ```sh
-# Inference on MultiWOZ2.0
+# Inference on MultiWOZ2.0 (1 GPU)
 sh scripts/multiwoz2.0/infer.sh
 
-# Inference on MultiWOZ2.1
+# Inference on MultiWOZ2.1 (1 GPU)
 sh scripts/multiwoz2.1/infer.sh
 
-# Inference on In-Car Assistant
+# Inference on In-Car Assistant (1 GPU)
 sh scripts/kvret/infer.sh
 
-# Inference on CamRest
+# Inference on CamRest (1 GPU)
 sh scripts/camrest/infer.sh
 ```
 > **NOTE**: For reproduction, all the best hyper-parameters have already been set in corresponding scripts and you can follow them to run.
+If you fine-tune GALAXY from scratch by yourself, the 4-th/60 to 7-th/60 training epochs show the best inference performance on MultiWOZ2.0/2.1.
 
 ## References
 - For the implementation of UniLM architecture, we refer to the code of [Pytorch-PLATO](https://github.com/HwwAncient/Pytorch-PLATO), 
