@@ -85,7 +85,7 @@ sh scripts/kvret/train.sh
 # Training on CamRest (1 GPU)
 sh scripts/camrest/train.sh
 ```
-> **NOTE**: For MultiWOZ2.0 and MultiWOZ2.1, we also maintain the DA prediction task to alleviate the model discrepancy between pre-training and fine-tuning. On the other hand, we discard this task on the In-Car Assistant and CamRest due to the lack of useful DAs in these two datasets.
+> **NOTE**: For MultiWOZ2.0 and MultiWOZ2.1, we also maintain the DA prediction task to alleviate model discrepancy between pre-training and fine-tuning. On the other hand, we discard this task on the In-Car Assistant and CamRest due to the lack of useful DAs in these two datasets.
 We support both multi-GPU and single-GPU training, you can tune the hyper-parameter `${BATCH_SIZE}$` and `${GRADIENT_ACCUMULATION_STEPS}$` to maintain originally offered  batch size when single-GPU training.
 
 ### Inference
