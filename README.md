@@ -86,7 +86,7 @@ sh scripts/kvret/train.sh
 sh scripts/camrest/train.sh
 ```
 > **NOTE**: For MultiWOZ2.0 and MultiWOZ2.1, we also maintain the DA prediction task to alleviate the model discrepancy between pre-training and fine-tuning. On the other hand, we discard this task on the In-Car Assistant and CamRest due to the lack of useful DAs in these two datasets.
-We support both multi-GPU and single-GPU training, you can jointly tune the hyper-parameter `${BATCH_SIZE}$` and `${GRADIENT_ACCUMULATION_STEPS}$` to maintain originally offered batch size when single-GPU training.
+Besides, we support both multi-GPU and single-GPU training, you can jointly tune the hyper-parameter `${BATCH_SIZE}$` and `${GRADIENT_ACCUMULATION_STEPS}$` to maintain originally offered batch size when single-GPU training.
 
 ### Inference
 After collecting some fine-tuned checkpoints (by directly using ours or fine-tuning GALAXY from scratch by yourself), you can do the inference on the test sets of these datasets by running the following inference scripts:
