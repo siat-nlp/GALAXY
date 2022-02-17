@@ -105,7 +105,7 @@ sh scripts/kvret/infer.sh
 sh scripts/camrest/infer.sh
 ```
 > **NOTE**: For reproduction, all the best hyper-parameters have already been set in corresponding scripts and you can follow them to run.
-If you fine-tune GALAXY from scratch by yourself, the 4-th/60 to 7-th/60 training epochs show the best inference performance on MultiWOZ2.0/2.1.
+If you fine-tune GALAXY from scratch by yourself, the 4-th/60 to 7-th/60 training epochs could offer you the best inference performance on MultiWOZ2.0/2.1.
 
 ## References
 - For the implementation of UniLM architecture, we refer to the code of [Pytorch-PLATO](https://github.com/HwwAncient/Pytorch-PLATO), 
