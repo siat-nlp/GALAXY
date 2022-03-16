@@ -19,6 +19,13 @@ GALAXY perform end-to-end dialog modeling and achieve new state-of-the-art resul
 |   In-Car Assistant  | 85.26 |  83.60 | 23.03 |     107.46     |
 |       CamRest       | 98.50 |  87.73 | 24.15 |     117.26     |
 
+New SOTA results on MultiWOZ (End-to-End Modeling & Policy Optimization) evaluated by [standardized scoring scripts](https://github.com/Tomiinek/MultiWOZ_Evaluation), which are officially recommended for the fair evaluations. We also add them to the [official leaderboard](https://github.com/budzianowski/multiwoz).
+
+| MultiWOZ | Inform | Success |  BLEU | Combined Score |
+|:-------------------:|:------:|:-------:|:-----:|:--------------:|
+|     End-to-End Modeling     |  85.40 |  75.70  | 19.64 |     100.2     |
+|     Policy Optimization     |  92.80 |  83.50  | 19.92 |     108.1     |
+
 ## Requirements
 ```
 - torch == 1.8.0+cu111
