@@ -1,6 +1,7 @@
 """
 Model base
 """
+import torch
 import torch.nn as nn
 
 
@@ -30,7 +31,7 @@ class ModelBase(nn.Module):
         group = parser.add_argument_group("Model")
         group.add_argument("--init_checkpoint", type=str, default=None)
         group.add_argument("--model", type=str, default="UnifiedTransformer",
-                           choices=["UnifiedTransformer"])
+                           choices=["UnifiedTransformer", "PretrainUnifiedTransformer"])
         args, _ = parser.parse_known_args()
         model_cls = ModelBase.by_name(args.model)
         model_cls.add_cmdline_argument(group)
@@ -39,8 +40,8 @@ class ModelBase(nn.Module):
     def __init__(self, hparams):
         super(ModelBase, self).__init__()
         self.init_checkpoint = hparams.init_checkpoint
+        self.with_rdrop_act = hparams.with_rdrop_act
         self.use_gpu = hparams.use_gpu
-        self.gpu = hparams.gpu
         return
 
     def _create_parameters(self):
@@ -74,6 +75,10 @@ class ModelBase(nn.Module):
             self.train()
         else:
             self.eval()
+
+        if self.with_rdrop_act:
+            inputs = {k: torch.cat([v, v], dim=0) if isinstance(v, torch.Tensor) else v
+                      for k, v in inputs.items()}
 
         outputs = self._forward(inputs, is_training)
         metrics = self._collect_metrics(inputs, outputs)

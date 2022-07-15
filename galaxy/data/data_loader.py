@@ -7,8 +7,7 @@ import math
 from galaxy.args import str2bool
 from galaxy.data.batch import batch
 from galaxy.data.sampler import RandomSampler
-from galaxy.data.sampler import SequentialSampler
-from galaxy.data.sampler import SortedSampler
+from torch.utils.data.distributed import DistributedSampler
 
 
 class DataLoader(object):
@@ -24,23 +23,18 @@ class DataLoader(object):
         self.dataset = dataset
         self.collate_fn = collate_fn
         self.sort_pool_size = hparams.sort_pool_size
+        self.shuffle = hparams.shuffle
+        self.world_size = hparams.world_size
 
-        if sampler is None:
-            if hparams.shuffle and not is_test:
-                sampler = RandomSampler(dataset)
-            else:
-                sampler = SequentialSampler(dataset)
-
-        if self.sort_pool_size > 0 and not is_test:
-            sampler = SortedSampler(sampler, self.sort_pool_size)
+        sampler = RandomSampler(self.dataset) if hparams.local_rank == -1 else \
+            DistributedSampler(self.dataset, shuffle=self.shuffle)
 
         def reader():
             for idx in sampler:
                 yield idx
 
-        self.reader = batch(reader, batch_size=hparams.batch_size, drop_last=False)
-        self.num_batches = math.ceil(len(dataset) / hparams.batch_size)
-
+        self.reader = batch(reader, batch_size=hparams.batch_size, drop_last=True)
+        self.num_batches = math.ceil(math.floor(len(dataset) / hparams.batch_size) / self.world_size)
         return
 
     def __len__(self):

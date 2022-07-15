@@ -14,7 +14,7 @@ from galaxy.args import parse_args
 from galaxy.args import str2bool
 from galaxy.data.dataset import Dataset
 from galaxy.data.field import BPETextField, MultiWOZBPETextField, CamRestBPETextField, KvretBPETextField
-from galaxy.trainer import Trainer, MultiWOZTrainer, CamRestTrainer, KvretTrainer
+from galaxy.trainers.trainer import Trainer, MultiWOZTrainer, CamRestTrainer, KvretTrainer
 from galaxy.models.model_base import ModelBase
 from galaxy.models.generator import Generator
 from galaxy.utils.eval import MultiWOZEvaluator, CamRestEvaluator, KvretEvaluator

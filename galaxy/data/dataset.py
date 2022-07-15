@@ -14,7 +14,7 @@ class Dataset(object):
         group.add_argument("--data_dir", type=str, required=False,
                            help="The dataset dir.")
         group.add_argument("--data_name", type=str, required=True,
-                           choices=["camrest", "kvret", "multiwoz"],
+                           choices=["uniDAunDial", "camrest", "kvret", "multiwoz"],
                            help="The name of dataset.")
         return group
 
@@ -35,7 +35,7 @@ class LazyDataset(Dataset):
     Each line of data file is a preprocessed example.
     """
 
-    def __init__(self, data_file, transform=lambda s: json.loads(s)):
+    def __init__(self, data_file, hparams, transform=lambda s: json.loads(s)):
         """
         Initialize lazy dataset.
 
@@ -49,6 +49,8 @@ class LazyDataset(Dataset):
         """
         self.data_file = data_file
         self.transform = transform
+        self.world_size = hparams.world_size
+        self.global_rank = hparams.global_rank
         self.offsets = [0]
         with open(data_file, "r", encoding="utf-8") as fp:
             while fp.readline() != "":

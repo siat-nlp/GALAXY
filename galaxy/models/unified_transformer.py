@@ -14,7 +14,7 @@ from galaxy.utils.eval import DAEvaluation
 
 class UnifiedTransformer(ModelBase):
     """
-    Implement unified transformer.
+    Implement unified transformer for generation.
     """
 
     @classmethod
@@ -57,6 +57,8 @@ class UnifiedTransformer(ModelBase):
                            help="Whether to train position embeddings.")
         group.add_argument("--with_joint_act", type=str2bool, default=False,
                            help="Whether to use joint DA training or inference.")
+        group.add_argument("--with_rdrop_act", type=str2bool, default=False,
+                           help="Whether to use R-Drop for DA during generation.")
         group.add_argument("--initializer_range", type=float, default=0.02,
                            help="Use to initialize parameters.")
         group.add_argument("--lr", type=float, default=1e-4,
@@ -91,8 +93,8 @@ class UnifiedTransformer(ModelBase):
         self.initializer_range = hparams.initializer_range
         self.use_discriminator = hparams.use_discriminator
         self.gradient_accumulation_steps = hparams.gradient_accumulation_steps
-        self.data_processed = hparams.data_processed
         self.with_joint_act = hparams.with_joint_act
+        self.with_rdrop_act = hparams.with_rdrop_act
         self.token_loss = hparams.token_loss
         self.dis_ratio = hparams.dis_ratio
         self.bce_ratio = hparams.bce_ratio
@@ -200,8 +202,7 @@ class UnifiedTransformer(ModelBase):
 
         mask_lu = mask1
         mask_ru = torch.ones(batch_size, seq_len1, seq_len2)
-        if self.use_gpu:
-            mask_ru = mask_ru.cuda()
+        mask_ru = mask_ru.to(mask_lu.device)
         mask3 = mask2[:, :, :1].repeat(1, 1, seq_len1)
         mask4 = mask1[:, :1].repeat(1, seq_len2, 1)
         mask_lb = mask3 + mask4 - mask3 * mask4

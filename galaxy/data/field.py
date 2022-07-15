@@ -80,7 +80,7 @@ class BPETextField(object):
                            help="Whether to filter the data with too long utterance/context. "
                                 "If the data is unfiltered, it will be truncated.")
         group.add_argument("--max_len", type=int, default=256,
-                           help="The maximum length of context or knowledges.")
+                           help="The maximum length of context or knowledge.")
         group.add_argument("--min_utt_len", type=int, default=1,
                            help="The minimum length of utterance.")
         group.add_argument("--max_utt_len", type=int, default=50,
